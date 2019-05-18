@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="Win32UWPApp.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Win32UWPApp.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Latest received message:"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       FontWeight="Bold"
+                       Margin="10,0" />
+            <TextBlock Text="{x:Bind LatestReceivedMessage, Mode=OneWay}"
+                       Style="{StaticResource BodyTextBlockStyle}" />
+        </StackPanel>
+        <TextBox Grid.Row="1" Text="{x:Bind SendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Content="Send" Click="Button_Click" Grid.Row="2" />
+    </Grid>
+</Page>
